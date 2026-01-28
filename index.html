@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Família - Gabriel 🐾</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* ===== TELA DE LOGIN ===== */
+        .auth-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            border: 4px solid #ff6b6b;
+            border-radius: 25px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            animation: fadeIn 0.8s ease;
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-familia {
+            font-size: 4em;
+            margin-bottom: 10px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        .auth-box h1 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitulo {
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        .input-group {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .input-group label {
+            display: block;
+            text-align: left;
+            margin-bottom: 10px;
+            color: #667eea;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0 20px;
+            border: 3px solid #ff6b6b;
+            border-radius: 12px;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+            background: #fff9f9;
+            text-align: center;
+        }
+
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #4ecdc4;
+            box-shadow: 0 0 15px rgba(78, 205, 196, 0.6);
+            background: white;
+        }
+
+        #btn-login {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: all 0.4s;
+            margin-top: 5px;
+            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+            font-size: 1.1em;
+        }
+
+        #btn-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.6);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        #btn-login:active {
+            transform: translateY(1px);
+        }
+
+        #btn-login:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #mensagem-erro {
+            color: #ff6f61;
+            margin-top: 20px;
+            font-weight: bold;
+            min-height: 25px;
+            font-size: 1.1em;
+            animation: shake 0.5s;
+        }
+
+        .dica {
+            margin-top: 25px;
+            color: #888;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        /* ===== CONTEÚDO DO ÁLBUM ===== */
+        #conteudo-album {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        header.capa {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            animation: slideDown 0.8s ease;
+        }
+
+        #btn-logout {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(255,255,255,0.25);
+            color: white;
+            border: 3px solid white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.4s;
+            font-weight: 700;
+            font-size: 1.1em;
+            backdrop-filter: blur(10px);
+        }
+
+        #btn-logout:hover {
+            background: white;
+            color: #667eea;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.4);
+        }
+
+        .pais-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .perfil {
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .perfil:hover {
+            transform: scale(1.05);
+        }
+
+        .perfil img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: all 0.4s;
+        }
+
+        .perfil img:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+        }
+
+        .perfil span {
+            display: block;
+            margin-top: 12px;
+            font-weight: 700;
+            font-size: 1.2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .coracao {
+            font-size: 2.5em;
+            color: #ff6b6b;
+            animation: pulse 1.5s infinite;
+        }
+
+        .info-contato {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255,255,255,0.25);
+            border-radius: 15px;
+            font-size: 1em;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .titulo-galeria {
+            color: #ff6b6b;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.8em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            font-weight: 700;
+            animation: fadeIn 1s;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            transition: all 0.4s;
+            border: 3px solid #4ecdc4;
+            cursor: pointer;
+            animation: slideUp 0.6s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            border-color: #ff6b6b;
+        }
+
+        .card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card video {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-loop {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .legenda {
+            padding: 20px;
+            text-align: center;
+            font-weight: 700;
+            color: #555;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            font-size: 1.2em;
+            border-top: 3px solid #ff6b6b;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.4s;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.3s;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+            animation: fadeIn 0.5s;
+        }
+
+        .modal-content video {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+            animation: fadeIn 0.5s;
+        }
+
+        .fechar {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 4em;
+            cursor: pointer;
+            transition: all 0.4s;
+            font-weight: bold;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .fechar:hover {
+            color: #ff6b6b;
+            transform: rotate(180deg) scale(1.2);
+            text-shadow: 0 0 20px rgba(255,107,107,0.8);
+        }
+
+        /* ===== ANIMAÇÕES ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { 
+                opacity: 0; 
+                transform: translateY(-50px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(50px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        @keyframes zoomIn {
+            from { 
+                opacity: 0; 
+                transform: scale(0.8); 
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1); 
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 768px) {
+            .auth-box {
+                padding: 35px 25px;
+                width: 95%;
+            }
+            
+            .logo-familia {
+                font-size: 3em;
+            }
+            
+            .auth-box h1 {
+                font-size: 2em;
+            }
+            
+            .pais-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+            
+            header.capa {
+                padding: 40px 15px;
+            }
+            
+            .titulo-galeria {
+                font-size: 2em;
+            }
+            
+            .perfil img {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-box {
+                padding: 30px 20px;
+            }
+            
+            .logo-familia {
+                font-size: 2.5em;
+            }
+            
+            .auth-box h1 {
+                font-size: 1.8em;
+            }
+            
+            .input-group {
+                padding: 20px;
+            }
+            
+            input[type="password"] {
+                padding: 12px;
+                font-size: 16px;
+            }
+            
+            #btn-login {
+                padding: 12px;
+                font-size: 18px;
+            }
+            
+            .perfil img {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .coracao {
+                font-size: 2em;
+            }
+            
+            .fechar {
+                top: 20px;
+                right: 30px;
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TELA DE LOGIN -->
+    <div id="login-container" class="auth-box">
+        <div class="logo-familia">🐾</div>
+        <h1>Acesso à Família</h1>
+        <p class="subtitulo">Álbum do Pequeno Gabriel</p>
+        
+        <div class="input-group">
+            <label for="senha">Digite a Senha:</label>
+            <input type="password" id="senha" placeholder="Senha secreta..." autocomplete="off">
+            <button id="btn-login">Entrar 🔐</button>
+        </div>
+        
+        <p id="mensagem-erro"></p>
+        <p class="dica">Dica: relacionada ao nosso pequeno Gabriel! 😊</p>
+    </div>
+
+    <!-- CONTEÚDO PROTEGIDO (Só aparece após login) -->
+    <div id="conteudo-album">
+        <header class="capa">
+            <button id="btn-logout">Sair 🚪</button>
+            <h1>Nossa Família ❤️</h1>
+            <div class="pais-container">
+                <div class="perfil">
+                    <img src="./img/will.jpg" alt="Pai">
+                    <span>Papai Willians</span>
+                </div>
+                <div class="coracao">❤️</div>
+                <div class="perfil">
+                    <img src="./img/ro.jpeg" alt="Mãe">
+                    <span>Mamãe Roberta</span>
+                </div>
+            </div>
+            <div class="info-contato">
+                
+                <p>🎂 Gabriel: 14/02/2026</p>
+            </div>
+        </header>
+
+        <main class="container">
+            <h2 class="titulo-galeria">✨ Galeria do Gabriel ✨</h2>
+            <div class="galeria">
+                <!-- Cards de Fotos -->
+                <div class="card">
+                    <img src="./img/WhatsApp Image 2026-01-27 at 20.09.11.jpeg">
+                    <div class="legenda">Momentos Especiais ✨🌟</div>
+                </div>
+                <div class="card">
+                    <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (1).jpeg">
+                    <div class="legenda">Momentos Especiais ✨🌟</div>
+                </div>
+                <div class="card">
+                    <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (2).jpeg">
+                    <div class="legenda">Momentos Especiais ✨🌟</div>
+                </div>
+                <div class="card">
+                    <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (3).jpeg">
+                    <div class="legenda">Momentos Especiais ✨🌟</div>
+                </div>
+
+                <div class="card">
+                    <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12.jpeg">
+                    <div class="legenda">Momentos Especiais ✨🌟</div>
+                </div>
+
+                <div class="card">
+                    <img src="./img/WhatsApp Image 2026-01-27 at 20.09.13.jpeg">
+                    <div class="legenda">Momentos Especiais ✨🌟</div>
+                </div>
+
+                <div class="card">
+                    <img src="./img/WhatsApp Image 2026-01-27 at 20.10.50.jpeg">
+                    <div class="legenda">Momentos Especiais ✨🌟</div>
+                </div>
+                
+                <!-- Card de Vídeo -->
+                <div class="card">
+                    <video autoplay muted loop playsinline class="video-loop">
+                        <source src="./video/nucleo.mp4" type="video/mp4">
+                    </video>
+                    <div class="legenda">Vídeos do Gabriel 👶❤️</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <span class="fechar">&times;</span>
+        <div id="conteudo-modal"></div>
+    </div>
+
+    <script>
+        // ELEMENTOS
+        const loginContainer = document.getElementById('login-container');
+        const conteudoAlbum = document.getElementById('conteudo-album');
+        const btnLogin = document.getElementById('btn-login');
+        const btnLogout = document.getElementById('btn-logout');
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('conteudo-modal');
+        const fecharModal = document.querySelector('.fechar');
+        const mensagemErro = document.getElementById('mensagem-erro');
+        const inputSenha = document.getElementById('senha');
+
+        // VERIFICA SE JÁ ESTÁ LOGADO
+        if (localStorage.getItem('usuarioLogado') === 'sim') {
+            loginContainer.style.display = 'none';
+            conteudoAlbum.style.display = 'block';
+        }
+
+        // LOGIN AO CLICAR NO BOTÃO
+        btnLogin.addEventListener('click', fazerLogin);
+
+        // LOGIN AO PRESSIONAR ENTER (FUNCIONANDO!)
+        inputSenha.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                fazerLogin();
+            }
+        });
+
+        // FUNÇÃO DE LOGIN
+        function fazerLogin() {
+            const senha = inputSenha.value.trim().toLowerCase();
+            
+            if (!senha) {
+                mostrarErro('⚠️ Digite a senha!');
+                inputSenha.focus();
+                return;
+            }
+
+            btnLogin.innerHTML = 'Verificando... 🔍';
+            btnLogin.disabled = true;
+            mensagemErro.textContent = '';
+
+            setTimeout(() => {
+                // SENHAS VÁLIDAS
+                if (senha === 'gabriel' || senha === 'gabriel123' || senha === 'familiagabriel') {
+                    localStorage.setItem('usuarioLogado', 'sim');
+                    loginContainer.style.display = 'none';
+                    conteudoAlbum.style.display = 'block';
+                    inputSenha.value = '';
+                } else {
+                    mostrarErro('🔒 Senha incorreta! Tente "gabriel"');
+                    inputSenha.value = '';
+                    inputSenha.focus();
+                }
+                
+                btnLogin.innerHTML = 'Entrar 🔐';
+                btnLogin.disabled = false;
+            }, 500);
+        }
+
+        // LOGOUT
+        btnLogout.addEventListener('click', function() {
+            localStorage.removeItem('usuarioLogado');
+            conteudoAlbum.style.display = 'none';
+            loginContainer.style.display = 'block';
+            mensagemErro.textContent = '';
+        });
+
+        // MODAL - FOTOS
+        document.querySelectorAll('.card img').forEach(img => {
+            img.parentElement.addEventListener('click', function() {
+                modalContent.innerHTML = `<img src="${img.src}" class="modal-content">`;
+                modal.style.display = 'flex';
+            });
+        });
+
+        // MODAL - VÍDEO
+        document.querySelectorAll('.card video').forEach(video => {
+            video.parentElement.addEventListener('click', function() {
+                const videoSrc = video.querySelector('source').src;
+                modalContent.innerHTML = `
+                    <video controls class="modal-content" autoplay>
+                        <source src="${videoSrc}" type="video/mp4">
+                        Seu navegador não suporta vídeos.
+                    </video>
+                `;
+                modal.style.display = 'flex';
+            });
+        });
+
+        // Fechar modal ao clicar no X
+        fecharModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+            modalContent.innerHTML = '';
+        });
+
+        // Fechar modal ao clicar fora
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                modalContent.innerHTML = '';
+            }
+        });
+
+        // Fechar modal com ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                modal.style.display = 'none';
+                modalContent.innerHTML = '';
+            }
+        });
+
+        function mostrarErro(mensagem) {
+            mensagemErro.textContent = mensagem;
+            mensagemErro.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+                mensagemErro.style.animation = '';
+            }, 500);
+        }
+
+        console.log('✅ Álbum carregado! Senha: gabriel');
+    </script>
+</body>
+</html>
