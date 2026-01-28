@@ -176,6 +176,7 @@
             font-weight: 700;
             font-size: 1.1em;
             backdrop-filter: blur(10px);
+            z-index: 100;
         }
 
         #btn-logout:hover {
@@ -243,6 +244,51 @@
             border: 2px solid rgba(255,255,255,0.3);
         }
 
+        /* ===== GALERIA COM FUNDO DE BICHINHOS ===== */
+        .container {
+            position: relative;
+            padding: 40px 20px;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, #ffd700 2px, transparent 3px),
+                radial-gradient(circle at 30% 40%, #ff69b4 2px, transparent 3px),
+                radial-gradient(circle at 50% 10%, #87ceeb 2px, transparent 3px),
+                radial-gradient(circle at 70% 30%, #98fb98 2px, transparent 3px),
+                radial-gradient(circle at 90% 50%, #dda0dd 2px, transparent 3px),
+                radial-gradient(circle at 20% 60%, #ff6347 2px, transparent 3px),
+                radial-gradient(circle at 40% 80%, #32cd32 2px, transparent 3px),
+                radial-gradient(circle at 60% 70%, #ff4500 2px, transparent 3px),
+                radial-gradient(circle at 80% 90%, #1e90ff 2px, transparent 3px);
+            background-size: 80px 80px;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .container::after {
+            content: "🐶🐱🐰🐻🦊🐭🐷🐨🦄🦁🐯🐵🐼🐧🐥🦉🦋🐞🌈";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 20px;
+            line-height: 1.8;
+            letter-spacing: 8px;
+            opacity: 0.08;
+            z-index: -1;
+            pointer-events: none;
+            white-space: pre-wrap;
+            text-align: center;
+        }
+
         .titulo-galeria {
             color: #ff6b6b;
             text-align: center;
@@ -251,12 +297,48 @@
             text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
             font-weight: 700;
             animation: fadeIn 1s;
+            position: relative;
+            z-index: 2;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.4), 
+                        -2px -2px 4px rgba(255,255,255,0.3);
+            letter-spacing: 2px;
+        }
+
+        /* ===== SEÇÕES DA GALERIA ===== */
+        .secao {
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .secao-titulo {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 3px solid #ff6b6b;
+            position: relative;
+            display: inline-block;
+            animation: slideUp 0.6s ease;
+        }
+
+        .secao-titulo::before {
+            content: attr(data-icon);
+            margin-right: 10px;
+            font-size: 1.3em;
         }
 
         .galeria {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 25px;
+            position: relative;
+            z-index: 2;
         }
 
         .card {
@@ -268,6 +350,8 @@
             border: 3px solid #4ecdc4;
             cursor: pointer;
             animation: slideUp 0.6s ease;
+            position: relative;
+            z-index: 3;
         }
 
         .card:hover {
@@ -278,7 +362,7 @@
 
         .card img {
             width: 100%;
-            height: 280px;
+            height: 260px;
             object-fit: cover;
             display: block;
             transition: transform 0.5s;
@@ -290,26 +374,43 @@
 
         .card video {
             width: 100%;
-            height: 280px;
+            height: 260px;
             object-fit: cover;
             display: block;
         }
 
         .video-loop {
             width: 100%;
-            height: 280px;
+            height: 260px;
             object-fit: cover;
             display: block;
         }
 
         .legenda {
-            padding: 20px;
+            padding: 18px;
             text-align: center;
             font-weight: 700;
             color: #555;
             background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            font-size: 1.2em;
+            font-size: 1.1em;
             border-top: 3px solid #ff6b6b;
+        }
+
+        /* ===== MENSAGEM VAZIA ===== */
+        .mensagem-vazia {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 30px auto;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px dashed #667eea;
+            animation: fadeIn 1s;
+        }
+
+        .mensagem-vazia p {
+            margin: 10px 0;
         }
 
         /* ===== MODAL ===== */
@@ -458,13 +559,33 @@
                 padding: 40px 15px;
             }
             
+            #btn-logout {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 20px auto 0;
+                display: block;
+                width: 80%;
+                max-width: 200px;
+            }
+            
             .titulo-galeria {
                 font-size: 2em;
+            }
+            
+            .secao-titulo {
+                font-size: 1.5em;
+                padding: 12px 25px;
             }
             
             .perfil img {
                 width: 110px;
                 height: 110px;
+            }
+            
+            .container::after {
+                font-size: 16px;
+                letter-spacing: 5px;
             }
         }
 
@@ -509,6 +630,32 @@
                 right: 30px;
                 font-size: 3em;
             }
+            
+            .container::after {
+                font-size: 12px;
+                letter-spacing: 3px;
+            }
+            
+            .secao-titulo {
+                font-size: 1.3em;
+                padding: 10px 20px;
+            }
+            
+            #btn-logout {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 15px auto 0;
+                display: block;
+                width: 70%;
+                max-width: 180px;
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+            
+            header.capa {
+                padding: 30px 10px 40px 10px;
+            }
         }
     </style>
 </head>
@@ -533,8 +680,8 @@
     <!-- CONTEÚDO PROTEGIDO (Só aparece após login) -->
     <div id="conteudo-album">
         <header class="capa">
-            <button id="btn-logout">Sair 🚪</button>
             <h1>Nossa Família ❤️</h1>
+            <button id="btn-logout">Sair 🚪</button>
             <div class="pais-container">
                 <div class="perfil">
                     <img src="./img/will.jpg" alt="Pai">
@@ -547,55 +694,81 @@
                 </div>
             </div>
             <div class="info-contato">
-                
                 <p>🎂 Gabriel: 14/02/2026</p>
             </div>
         </header>
 
         <main class="container">
             <h2 class="titulo-galeria">✨ Galeria do Gabriel ✨</h2>
-            <div class="galeria">
-                <!-- Cards de Fotos -->
-                <div class="card">
-                    <img src="./img/WhatsApp Image 2026-01-27 at 20.09.11.jpeg">
-                    <div class="legenda">Momentos Especiais ✨🌟</div>
+            
+            <!-- SEÇÃO 1: Primeiros Momentos -->
+            <section class="secao">
+                <h3 class="secao-titulo" data-icon="👶">Primeiros Momentos no Ultrassom</h3>
+                <div class="galeria">
+                    <div class="card">
+                        <img src="./img/WhatsApp Image 2026-01-27 at 20.09.11.jpeg">
+                        <div class="legenda">Recém-nascido ✨</div>
+                    </div>
+                    <div class="card">
+                        <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (1).jpeg">
+                        <div class="legenda">Primeiro sono 😴</div>
+                    </div>
+                    <div class="card">
+                        <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (2).jpeg">
+                        <div class="legenda">Momento especial 💝</div>
+                    </div>
+                    <div class="card">
+                        <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (3).jpeg">
+                        <div class="legenda">Tamanho do Pé 😊</div>
+                    </div>
+                    <div class="card">
+                        <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12.jpeg">
+                        <div class="legenda">Descobrindo o mundo 🌍</div>
+                    </div>
+                    <div class="card">
+                        <img src="./img/WhatsApp Image 2026-01-27 at 20.09.13.jpeg">
+                        <div class="legenda">Curioso demais 🤔</div>
+                    </div>
+                    <div class="card">
+                        <img src="./img/WhatsApp Image 2026-01-27 at 20.10.50.jpeg">
+                        <div class="legenda">Momentos mágicos ✨</div>
+                    </div>
+                    <div class="card">
+                        <video autoplay muted loop playsinline class="video-loop">
+                            <source src="./video/WhatsApp Video 2026-01-27 at 22.47.45.mp4" type="video/mp4">
+                        </video>
+                        <div class="legenda">Olha o coração do Gabriel 👶❤️</div>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (1).jpeg">
-                    <div class="legenda">Momentos Especiais ✨🌟</div>
-                </div>
-                <div class="card">
-                    <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (2).jpeg">
-                    <div class="legenda">Momentos Especiais ✨🌟</div>
-                </div>
-                <div class="card">
-                    <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (3).jpeg">
-                    <div class="legenda">Momentos Especiais ✨🌟</div>
-                </div>
+            </section>
 
-                <div class="card">
-                    <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12.jpeg">
-                    <div class="legenda">Momentos Especiais ✨🌟</div>
+            <!-- SEÇÃO 2: Aguardando Nascimento -->
+            <section class="secao">
+                <h3 class="secao-titulo" data-icon="😊">Aguardando o Nascimento para mais fotos</h3>
+                <div class="mensagem-vazia">
+                    <div style="font-size: 60px; margin-bottom: 20px;">👶💤</div>
+                    <p style="font-size: 1.3em; color: #667eea; font-weight: 600;">
+                        Em breve novas fotos do nosso pequeno!
+                    </p>
+                    <p style="color: #888; margin-top: 10px; font-size: 1.1em;">
+                        Estamos ansiosos para registrar cada momento! ❤️
+                    </p>
                 </div>
+            </section>
 
-                <div class="card">
-                    <img src="./img/WhatsApp Image 2026-01-27 at 20.09.13.jpeg">
-                    <div class="legenda">Momentos Especiais ✨🌟</div>
+            <!-- SEÇÃO 3: Momentos Especiais -->
+            <section class="secao">
+                <h3 class="secao-titulo" data-icon="🌟">Momentos Especiais</h3>
+                <div class="mensagem-vazia">
+                    <div style="font-size: 60px; margin-bottom: 20px;">💝✨</div>
+                    <p style="font-size: 1.3em; color: #667eea; font-weight: 600;">
+                        Momentos inesquecíveis estão por vir!
+                    </p>
+                    <p style="color: #888; margin-top: 10px; font-size: 1.1em;">
+                        Prepare-se para muitas memórias lindas! 📸
+                    </p>
                 </div>
-
-                <div class="card">
-                    <img src="./img/WhatsApp Image 2026-01-27 at 20.10.50.jpeg">
-                    <div class="legenda">Momentos Especiais ✨🌟</div>
-                </div>
-                
-                <!-- Card de Vídeo -->
-                <div class="card">
-                    <video autoplay muted loop playsinline class="video-loop">
-                        <source src="./video/WhatsApp Video 2026-01-27 at 22.47.45.mp4" type="video/mp4">
-                    </video>
-                    <div class="legenda">Vídeos do Gabriel 👶❤️</div>
-                </div>
-            </div>
+            </section>
         </main>
     </div>
 
