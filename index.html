@@ -34,47 +34,12 @@
             animation: fadeIn 0.8s ease;
             width: 100%;
             max-width: 450px;
-            position: relative;
-            overflow: hidden;
         }
 
-        .logo-familia {
-            font-size: 4em;
-            margin-bottom: 10px;
-            animation: bounce 1s infinite alternate;
-        }
-
-        .auth-box h1 {
-            color: #ff6b6b;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .subtitulo {
-            color: #555;
-            margin-bottom: 30px;
-            font-size: 1.2em;
-            font-weight: 300;
-        }
-
-        .input-group {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .input-group label {
-            display: block;
-            text-align: left;
-            margin-bottom: 10px;
-            color: #667eea;
-            font-weight: 600;
-            font-size: 1.1em;
-        }
-
+        .logo-familia { font-size: 4em; margin-bottom: 10px; animation: bounce 1s infinite alternate; }
+        .auth-box h1 { color: #ff6b6b; margin-bottom: 10px; font-size: 2.5em; font-weight: 700; }
+        .input-group { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        
         input[type="password"] {
             width: 100%;
             padding: 15px;
@@ -82,17 +47,7 @@
             border: 3px solid #ff6b6b;
             border-radius: 12px;
             font-size: 18px;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s;
-            background: #fff9f9;
             text-align: center;
-        }
-
-        input[type="password"]:focus {
-            outline: none;
-            border-color: #4ecdc4;
-            box-shadow: 0 0 15px rgba(78, 205, 196, 0.6);
-            background: white;
         }
 
         #btn-login {
@@ -104,946 +59,303 @@
             border-radius: 12px;
             font-size: 20px;
             font-weight: 700;
-            font-family: 'Poppins', sans-serif;
             cursor: pointer;
-            transition: all 0.4s;
-            margin-top: 5px;
-            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
-            font-size: 1.1em;
-        }
-
-        #btn-login:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.6);
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-        }
-
-        #btn-login:active {
-            transform: translateY(1px);
-        }
-
-        #btn-login:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        #mensagem-erro {
-            color: #ff6f61;
-            margin-top: 20px;
-            font-weight: bold;
-            min-height: 25px;
-            font-size: 1.1em;
-            animation: shake 0.5s;
-        }
-
-        .dica {
-            margin-top: 25px;
-            color: #888;
-            font-size: 0.9em;
-            font-style: italic;
+            transition: 0.3s;
         }
 
         /* ===== CONTEÚDO DO ÁLBUM ===== */
-        #conteudo-album {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: none;
-        }
+        #conteudo-album { width: 100%; max-width: 1200px; display: none; }
 
         header.capa {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-align: center;
             padding: 50px 20px;
-            position: relative;
             border-radius: 25px;
             margin-bottom: 40px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            animation: slideDown 0.8s ease;
+            position: relative;
         }
 
         #btn-logout {
             position: absolute;
             top: 25px;
             right: 25px;
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.2);
             color: white;
-            border: 3px solid white;
-            padding: 10px 20px;
-            border-radius: 25px;
+            border: 2px solid white;
+            padding: 8px 15px;
+            border-radius: 20px;
             cursor: pointer;
-            transition: all 0.4s;
-            font-weight: 700;
-            font-size: 1.1em;
-            backdrop-filter: blur(10px);
-            z-index: 100;
         }
 
-        #btn-logout:hover {
-            background: white;
-            color: #667eea;
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
-        }
+        .pais-container { display: flex; justify-content: center; align-items: center; gap: 25px; margin: 30px 0; }
+        .perfil img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid white; object-fit: cover; }
 
-        .pais-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .perfil {
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .perfil:hover {
-            transform: scale(1.05);
-        }
-
-        .perfil img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s;
-        }
-
-        .perfil img:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .perfil span {
-            display: block;
-            margin-top: 12px;
-            font-weight: 700;
-            font-size: 1.2em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            color: white;
-        }
-
-        .coracao {
-            font-size: 2.5em;
-            color: #ff6b6b;
-            animation: pulse 1.5s infinite;
-        }
-
-        .info-contato {
-            margin-top: 25px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.25);
-            border-radius: 15px;
-            font-size: 1em;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        /* ===== GALERIA COM FUNDO DE BICHINHOS ===== */
-        .container {
-            position: relative;
-            padding: 40px 20px;
-        }
-
-        .container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at 10% 20%, #ffd700 2px, transparent 3px),
-                radial-gradient(circle at 30% 40%, #ff69b4 2px, transparent 3px),
-                radial-gradient(circle at 50% 10%, #87ceeb 2px, transparent 3px),
-                radial-gradient(circle at 70% 30%, #98fb98 2px, transparent 3px),
-                radial-gradient(circle at 90% 50%, #dda0dd 2px, transparent 3px),
-                radial-gradient(circle at 20% 60%, #ff6347 2px, transparent 3px),
-                radial-gradient(circle at 40% 80%, #32cd32 2px, transparent 3px),
-                radial-gradient(circle at 60% 70%, #ff4500 2px, transparent 3px),
-                radial-gradient(circle at 80% 90%, #1e90ff 2px, transparent 3px);
-            background-size: 80px 80px;
-            opacity: 0.15;
-            z-index: -1;
-        }
-
-        .container::after {
-            content: "🐶🐱🐰🐻🦊🐭🐷🐨🦄🦁🐯🐵🐼🐧🐥🦉🦋🐞🌈";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            font-size: 20px;
-            line-height: 1.8;
-            letter-spacing: 8px;
-            opacity: 0.08;
-            z-index: -1;
-            pointer-events: none;
-            white-space: pre-wrap;
-            text-align: center;
-        }
-
-        .titulo-galeria {
-            color: #ff6b6b;
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.8em;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-            font-weight: 700;
-            animation: fadeIn 1s;
-            position: relative;
-            z-index: 2;
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4),
-                -2px -2px 4px rgba(255, 255, 255, 0.3);
-            letter-spacing: 2px;
-        }
-
-        /* ===== SEÇÕES DA GALERIA ===== */
-        .secao {
-            margin-bottom: 50px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .secao-titulo {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 15px;
-            text-align: center;
-            font-size: 1.8em;
-            font-weight: 700;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            border: 3px solid #ff6b6b;
-            position: relative;
-            display: inline-block;
-            animation: slideUp 0.6s ease;
-        }
-
-        .secao-titulo::before {
-            content: attr(data-icon);
-            margin-right: 10px;
-            font-size: 1.3em;
+        /* ===== GALERIA ===== */
+        .container-galeria {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .galeria {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 25px;
-            position: relative;
-            z-index: 2;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .card {
             background: white;
-            border-radius: 20px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            transition: all 0.4s;
             border: 3px solid #4ecdc4;
+            transition: 0.3s;
             cursor: pointer;
-            animation: slideUp 0.6s ease;
-            position: relative;
-            z-index: 3;
         }
 
-        .card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border-color: #ff6b6b;
-        }
+        .card:hover { transform: translateY(-10px); border-color: #ff6b6b; }
+        .card img, .card video { width: 100%; height: 250px; object-fit: cover; display: block; }
+        .legenda { padding: 15px; text-align: center; font-weight: bold; background: #f9f9f9; color: #555; }
 
-        .card img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s;
-        }
-
-        .card:hover img {
-            transform: scale(1.1);
-        }
-
-        .card video {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .video-loop {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .legenda {
-            padding: 18px;
-            text-align: center;
-            font-weight: 700;
-            color: #555;
+        .secao-titulo {
             background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            font-size: 1.1em;
-            border-top: 3px solid #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin: 40px 0 20px;
+            display: inline-block;
+            border: 2px solid #ff6b6b;
         }
 
-        /* ===== MENSAGEM VAZIA ===== */
-        .mensagem-vazia {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-            border-radius: 20px;
-            padding: 40px 20px;
-            text-align: center;
-            margin: 30px auto;
-            max-width: 600px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 2px dashed #667eea;
-            animation: fadeIn 1s;
-        }
-
-        .mensagem-vazia p {
-            margin: 10px 0;
-        }
-
-        /* ===== MODAL ===== */
+        /* ===== MODAL (ZOOM CORRIGIDO) ===== */
         .modal {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
             z-index: 1000;
             justify-content: center;
             align-items: center;
-            animation: fadeIn 0.4s;
+            padding: 20px;
         }
 
         .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            animation: zoomIn 0.3s;
-        }
-
-        .modal-content img {
+            position: relative;
             max-width: 100%;
-            max-height: 90vh;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-            animation: fadeIn 0.5s;
+            max-height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .modal-content video {
-            max-width: 100%;
-            max-height: 90vh;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-            animation: fadeIn 0.5s;
+        /* AJUSTE PARA A FOTO FICAR NORMAL NO ZOOM */
+        .modal-content img, .modal-content video { 
+            max-width: 95vw; 
+            max-height: 90vh; 
+            border-radius: 5px;
+            object-fit: contain; /* Garante que a foto não estique e apareça inteira */
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
         }
 
-        .fechar {
-            position: absolute;
-            top: 30px;
-            right: 40px;
-            color: white;
-            font-size: 4em;
-            cursor: pointer;
-            transition: all 0.4s;
+        .fechar { 
+            position: absolute; 
+            top: -40px; 
+            right: 0; 
+            color: white; 
+            font-size: 40px; 
+            cursor: pointer; 
             font-weight: bold;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
-        .fechar:hover {
-            color: #ff6b6b;
-            transform: rotate(180deg) scale(1.2);
-            text-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
-        }
-
-        /* ===== ANIMAÇÕES ===== */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.3);
-            }
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-
-        @keyframes shake {
-
-            0%,
-            100% {
-                transform: translateX(0);
-            }
-
-            25% {
-                transform: translateX(-8px);
-            }
-
-            75% {
-                transform: translateX(8px);
-            }
-        }
-
-        /* ===== RESPONSIVO ===== */
-        @media (max-width: 768px) {
-            .auth-box {
-                padding: 35px 25px;
-                width: 95%;
-            }
-
-            .logo-familia {
-                font-size: 3em;
-            }
-
-            .auth-box h1 {
-                font-size: 2em;
-            }
-
-            .pais-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .galeria {
-                grid-template-columns: 1fr;
-            }
-
-            header.capa {
-                padding: 40px 15px;
-            }
-
-            #btn-logout {
-                position: relative;
-                top: auto;
-                right: auto;
-                margin: 20px auto 0;
-                display: block;
-                width: 80%;
-                max-width: 200px;
-            }
-
-            .titulo-galeria {
-                font-size: 2em;
-            }
-
-            .secao-titulo {
-                font-size: 1.5em;
-                padding: 12px 25px;
-            }
-
-            .perfil img {
-                width: 110px;
-                height: 110px;
-            }
-
-            .container::after {
-                font-size: 16px;
-                letter-spacing: 5px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .auth-box {
-                padding: 30px 20px;
-            }
-
-            .logo-familia {
-                font-size: 2.5em;
-            }
-
-            .auth-box h1 {
-                font-size: 1.8em;
-            }
-
-            .input-group {
-                padding: 20px;
-            }
-
-            input[type="password"] {
-                padding: 12px;
-                font-size: 16px;
-            }
-
-            #btn-login {
-                padding: 12px;
-                font-size: 18px;
-            }
-
-            .perfil img {
-                width: 90px;
-                height: 90px;
-            }
-
-            .coracao {
-                font-size: 2em;
-            }
-
-            .fechar {
-                top: 20px;
-                right: 30px;
-                font-size: 3em;
-            }
-
-            .container::after {
-                font-size: 12px;
-                letter-spacing: 3px;
-            }
-
-            .secao-titulo {
-                font-size: 1.3em;
-                padding: 10px 20px;
-            }
-
-            #btn-logout {
-                position: relative;
-                top: auto;
-                right: auto;
-                margin: 15px auto 0;
-                display: block;
-                width: 70%;
-                max-width: 180px;
-                padding: 8px 15px;
-                font-size: 0.9em;
-            }
-
-            header.capa {
-                padding: 30px 10px 40px 10px;
-            }
-        }
+        @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-10px); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 
 <body>
 
-    <!-- TELA DE LOGIN -->
     <div id="login-container" class="auth-box">
         <div class="logo-familia">🐾</div>
         <h1>Acesso à Família</h1>
-        <p class="subtitulo">Álbum do Pequeno Gabriel</p>
-
+        <p>Álbum do Pequeno Gabriel</p>
         <div class="input-group">
-            <label for="senha">Digite a Senha:</label>
-            <input type="password" id="senha" placeholder="Senha secreta..." autocomplete="off">
+            <input type="password" id="senha" placeholder="Senha secreta...">
             <button id="btn-login">Entrar 🔐</button>
         </div>
-
-        <p id="mensagem-erro"></p>
-        <p class="dica">Dica: relacionada ao nosso pequeno Gabriel! 😊</p>
+        <p id="mensagem-erro" style="color: red; margin-top: 10px; font-weight: bold;"></p>
     </div>
 
-    <!-- CONTEÚDO PROTEGIDO (Só aparece após login) -->
     <div id="conteudo-album">
         <header class="capa">
-            <h1>Nossa Família ❤️</h1>
             <button id="btn-logout">Sair 🚪</button>
+            <h1>Nossa Família ❤️</h1>
             <div class="pais-container">
                 <div class="perfil">
                     <img src="./img/will.jpg" alt="Pai">
-                    <span>Papai Willians</span>
+                    <p>Papai Willians</p>
                 </div>
-                <div class="coracao">❤️</div>
+                <div style="font-size: 2em;">❤️</div>
                 <div class="perfil">
                     <img src="./img/mae.jpeg" alt="Mãe">
-                    <span>Mamãe Roberta</span>
+                    <p>Mamãe Roberta</p>
                 </div>
             </div>
-            <div class="info-contato">
-                <p>🎂 Gabriel: 14/02/2026</p>
-            </div>
+            <p>🎂 Nascimento: 14/02/2026</p>
         </header>
 
-        <main class="container">
-            <h2 class="titulo-galeria">✨ Galeria do Gabriel ✨</h2>
-
-            <!-- SEÇÃO 1: Primeiros Momentos do Ultrassom-->
-            <section class="secao">
-                <h3 class="secao-titulo" data-icon="👶">Primeiros Momentos no Ultrassom</h3>
+        <main class="container-galeria">
+            
+            <section>
+                <h3 class="secao-titulo">👶 Primeiros Momentos (Ultrassom)</h3>
                 <div class="galeria">
+                    <div class="card"><img src="./img/WhatsApp Image 2026-01-27 at 20.09.11.jpeg"><div class="legenda">Acordando ✨</div></div>
+                    <div class="card"><img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (1).jpeg"><div class="legenda">Primeiro sono 😴</div></div>
+                    <div class="card"><img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (2).jpeg"><div class="legenda">Momento especial 💝</div></div>
+                    <div class="card"><img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (3).jpeg"><div class="legenda">Tamanho do Pé 😊</div></div>
+                    <div class="card"><img src="./img/WhatsApp Image 2026-01-27 at 20.09.12.jpeg"><div class="legenda">Descobrindo o mundo 🌍</div></div>
+                    <div class="card"><img src="./img/WhatsApp Image 2026-01-27 at 20.09.13.jpeg"><div class="legenda">Curioso demais 🤔</div></div>
+                    <div class="card"><img src="./img/WhatsApp Image 2026-01-27 at 20.10.50.jpeg"><div class="legenda">Momentos mágicos ✨</div></div>
+                    <div class="card"><img src="./img/bebe.jpeg"><div class="legenda">Perfeito ✨</div></div>
+                    <div class="card"><img src="./img/sexo masc.jpeg"><div class="legenda">É Menino! 👦</div></div>
+                    <div class="card"><img src="./img/boca.jpeg"><div class="legenda">Bochechas 😊</div></div>
+                    <div class="card"><img src="./img/femur.jpeg"><div class="legenda">Crescendo 💪</div></div>
                     <div class="card">
-                        <img src="./img/WhatsApp Image 2026-01-27 at 20.09.11.jpeg">
-                        <div class="legenda">Acordando ✨</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (1).jpeg">
-                        <div class="legenda">Primeiro sono 😴</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (2).jpeg">
-                        <div class="legenda">Momento especial 💝</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12 (3).jpeg">
-                        <div class="legenda">Tamanho do Pé 😊</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/WhatsApp Image 2026-01-27 at 20.09.12.jpeg">
-                        <div class="legenda">Descobrindo o mundo 🌍</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/WhatsApp Image 2026-01-27 at 20.09.13.jpeg">
-                        <div class="legenda">Curioso demais 🤔</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/WhatsApp Image 2026-01-27 at 20.10.50.jpeg">
-                        <div class="legenda">Momentos mágicos ✨</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/bebe.jpeg">
-                        <div class="legenda">Perfeito ✨</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/sexo masc.jpeg">
-                        <div class="legenda">Sexo Masculino ✨</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/boca.jpeg">
-                        <div class="legenda">Boca ✨</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/femur.jpeg">
-                        <div class="legenda">Fêmur ✨</div>
-                    </div>
-                    <div class="card">
-                        <video autoplay muted loop playsinline class="video-loop">
-                            <source src="./video/nascido 1.mp4" type="video/mp4">
-                        </video>
-                        <div class="legenda">Olha o coração do Gabriel 👶❤️</div>
+                        <video autoplay muted loop playsinline><source src="./video/nascido 1.mp4" type="video/mp4"></video>
+                        <div class="legenda">Coração do Gabriel ❤️</div>
                     </div>
                 </div>
             </section>
 
-            <!-- SEÇÃO 2: As Primeiras fotos do Gabriel -->
-            <section class="secao">
-                <h3 class="secao-titulo" data-icon="👶">As Primeiras fotos do Gabriel</h3>
+            <section>
+                <h3 class="secao-titulo">📸 As Primeiras Fotos</h3>
                 <div class="galeria">
+                    <div class="card"><img src="./img/1.jpeg"><div class="legenda">Primeira Foto ✨</div></div>
+                    <div class="card"><img src="./img/2.jpeg"><div class="legenda">Dormindo 😴</div></div>
+                    <div class="card"><img src="./img/3.jpeg"><div class="legenda">Cheguei! 💝</div></div>
+                    <div class="card"><img src="./img/5.jpeg"><div class="legenda">Charme 😊</div></div>
+                    <div class="card"><img src="./img/6.jpeg"><div class="legenda">Não me incomode 😴</div></div>
+                    <div class="card"><img src="./img/8.jpeg"><div class="legenda">Relaxando 🤔</div></div>
+                    <div class="card"><img src="./img/9.jpeg"><div class="legenda">Olha o Leão ✨</div></div>
+                    <div class="card"><img src="./img/10.jpeg"><div class="legenda">Olha a pose ✨</div></div>
+                    <div class="card"><img src="./img/11.jpeg"><div class="legenda">Tomando Sol ✨</div></div>
+                    <div class="card"><img src="./img/12.jpeg"><div class="legenda">Dormi 😴</div></div>
                     <div class="card">
-                        <img src="./img/1.jpeg">
-                        <div class="legenda">Primeira Foto ✨</div>
+                        <video autoplay muted loop playsinline><source src="./video/rosto.mp4" type="video/mp4"></video>
+                        <div class="legenda">Rostinho Lindo ❤️</div>
                     </div>
                     <div class="card">
-                        <img src="./img/2.jpeg">
-                        <div class="legenda">Primeiro sono 😴</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/3.jpeg">
-                        <div class="legenda">Cheguei 💝</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/5.jpeg">
-                        <div class="legenda">Charme 😊</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/6.jpeg">
-                        <div class="legenda">Não me incomode 😴</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/8.jpeg">
-                        <div class="legenda">Relaxando 🤔</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/9.jpeg">
-                        <div class="legenda">Olha o Leão ✨</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/10.jpeg">
-                        <div class="legenda">Olha a pose ✨</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/11.jpeg">
-                        <div class="legenda">Tomando Sol ✨</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/12.jpeg">
-                        <div class="legenda">Dormi 😴</div>
-                    </div>
-                    <div class="card">
-                        <video autoplay muted loop playsinline class="video-loop">
-                            <source src="./video/rosto.mp4" type="video/mp4">
-                        </video>
-                        <div class="legenda">Rosto do Gabriel 👶❤️</div>
-                    </div>
-                    <div class="card">
-                        <video autoplay muted loop playsinline class="video-loop">
-                            <source src="./video/sol.mp4" type="video/mp4">
-                        </video>
-                        <div class="legenda">Cadê meu óculos? 👓❤️</div>
+                        <video autoplay muted loop playsinline><source src="./video/sol.mp4" type="video/mp4"></video>
+                        <div class="legenda">Pequeno Estilo ☀️</div>
                     </div>
                 </div>
             </section>
 
-            <!-- SEÇÃO 3: 1 Mês Gabriel -->
-            <section class="secao">
-                <h3 class="secao-titulo" data-icon="👶">1 Mês do Gabriel</h3>
+            <section>
+                <h3 class="secao-titulo">🍼 1 Mês do Gabriel</h3>
                 <div class="galeria">
+                    <div class="card"><img src="./img/1 mes 1.jpeg"><div class="legenda">Sorriso ✨</div></div>
+                    <div class="card"><img src="./img/1 mes 2.jpeg"><div class="legenda">Curioso 😊</div></div>
+                    <div class="card"><img src="./img/1 mes 3.jpeg"><div class="legenda">Fofura 💝</div></div>
+                    <div class="card"><img src="./img/1 mes 4.jpeg"><div class="legenda">Charme 😊</div></div>
+                    <div class="card"><img src="./img/1 mes 5.jpeg"><div class="legenda">Olhinhos ✨</div></div>
+                    <div class="card"><img src="./img/1 mes 6.jpeg"><div class="legenda">Descanso 😴</div></div>
+                    <div class="card"><img src="./img/1 mes 7.jpeg"><div class="legenda">Especial ✨</div></div>
+                    <div class="card"><img src="./img/1 mes famila.jpeg"><div class="legenda">Meu amor ❤️</div></div>
+                    <div class="card"><img src="./img/1 mes familia 1.jpeg"><div class="legenda">Vovôs 💝</div></div>
+                    <div class="card"><img src="./img/1 mes familia 2.jpeg"><div class="legenda">Nossa Vida 👨‍👦</div></div>
+                    <div class="card"><img src="./img/1 mes familia 3.jpeg"><div class="legenda">Unicidade ✨</div></div>
+                    <div class="card"><img src="./img/1 mes familia 4.jpeg"><div class="legenda">Nossa Família ❤️</div></div>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="secao-titulo">🦁 2 Mês do Gabriel</h3>
+                <div class="galeria">
+                    <div class="card"><img src="./img/Azul.jpeg"><div class="legenda">Azul ✨</div></div>
+                    <div class="card"><img src="./img/banheira.jpeg"><div class="legenda">Banho 🛁</div></div>
+                    <div class="card"><img src="./img/pai e filho.jpeg"><div class="legenda">Papai 💝</div></div>
                     <div class="card">
-                        <img src="./img/1 mes 1.jpeg">
-                        <div class="legenda">Primeiro sorriso ✨</div>
+                        <video autoplay muted loop playsinline><source src="./video/chacara.mp4" type="video/mp4"></video>
+                        <div class="legenda">Chácara 🌳</div>
                     </div>
                     <div class="card">
-                        <img src="./img/1 mes 2.jpeg">
-                        <div class="legenda">Cade a Nina 😊 </div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/1 mes 3.jpeg">
-                        <div class="legenda">Momento fofo 💝</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/1 mes 4.jpeg">
-                        <div class="legenda">Charme 😊</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/1 mes 5.jpeg">
-                        <div class="legenda">Olhinhos curiosos ✨</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/1 mes 6.jpeg">
-                        <div class="legenda">Descansando 😴</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/1 mes 7.jpeg">
-                        <div class="legenda">Momento especial ✨</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/1 mes famila.jpeg">
-                        <div class="legenda"> Meu amor ❤️</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/1 mes familia 1.jpeg">
-                        <div class="legenda">Amor de Vó e Vô 💝</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/1 mes familia 2.jpeg">
-                        <div class="legenda">Papai Mamae e Gabriel 👨‍👦</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/1 mes familia 3.jpeg">
-                        <div class="legenda">Momento único ✨</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/1 mes familia 4.jpeg">
-                        <div class="legenda">Nossa família ❤️</div>
+                        <video autoplay muted loop playsinline><source src="./video/casa.mp4" type="video/mp4"></video>
+                        <div class="legenda">Em Casa 🏠</div>
                     </div>
                 </div>
             </section>
 
-            <!-- SEÇÃO 4: Aguardem mais fotos -->
-            <section class="secao">
-                <h3 class="secao-titulo" data-icon="🌟">💝✨ Aguardem, logo terá mais fotos! 💝✨</h3>
-                <div class="mensagem-vazia">
-                    <div style="font-size: 60px; margin-bottom: 20px;">💝✨</div>
-                    <p style="font-size: 1.3em; color: #667eea; font-weight: 600;">
-                        Momentos inesquecíveis estão por vir!
-                    </p>
-                    <p style="color: #888; margin-top: 10px; font-size: 1.1em;">
-                        Prepare-se para muitas memórias lindas! 📸
-                    </p>
-                </div>
-            </section>
+            <div style="text-align: center; margin-top: 50px; color: #667eea; font-weight: bold;">
+                <p>💝 Em breve, mais memórias... 📸</p>
+            </div>
         </main>
     </div>
 
-    <!-- Modal -->
     <div id="modal" class="modal">
-        <span class="fechar">&times;</span>
-        <div id="conteudo-modal"></div>
+        <div class="modal-content">
+            <span class="fechar">&times;</span>
+            <div id="conteudo-modal"></div>
+        </div>
     </div>
 
     <script>
-        // ELEMENTOS
-        const loginContainer = document.getElementById('login-container');
-        const conteudoAlbum = document.getElementById('conteudo-album');
-        const btnLogin = document.getElementById('btn-login');
-        const btnLogout = document.getElementById('btn-logout');
+        const loginBtn = document.getElementById('btn-login');
+        const logoutBtn = document.getElementById('btn-logout');
+        const senhaInput = document.getElementById('senha');
+        const loginDiv = document.getElementById('login-container');
+        const albumDiv = document.getElementById('conteudo-album');
+        const erroMsg = document.getElementById('mensagem-erro');
         const modal = document.getElementById('modal');
         const modalContent = document.getElementById('conteudo-modal');
-        const fecharModal = document.querySelector('.fechar');
-        const mensagemErro = document.getElementById('mensagem-erro');
-        const inputSenha = document.getElementById('senha');
 
-        // VERIFICA SE JÁ ESTÁ LOGADO
-        if (localStorage.getItem('usuarioLogado') === 'sim') {
-            loginContainer.style.display = 'none';
-            conteudoAlbum.style.display = 'block';
+        // Checar Login
+        if (localStorage.getItem('gabriel_logado') === 'sim') {
+            loginDiv.style.display = 'none';
+            albumDiv.style.display = 'block';
         }
 
-        // LOGIN AO CLICAR NO BOTÃO
-        btnLogin.addEventListener('click', fazerLogin);
-
-        // LOGIN AO PRESSIONAR ENTER (FUNCIONANDO!)
-        inputSenha.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                fazerLogin();
+        function validarLogin() {
+            const s = senhaInput.value.toLowerCase().trim();
+            if (s === 'gabriel' || s === 'familiagabriel') {
+                localStorage.setItem('gabriel_logado', 'sim');
+                location.reload();
+            } else {
+                erroMsg.textContent = "Senha incorreta!";
+                senhaInput.value = '';
             }
-        });
+        }
 
-        // FUNÇÃO DE LOGIN
-        function fazerLogin() {
-            const senha = inputSenha.value.trim().toLowerCase();
+        loginBtn.onclick = validarLogin;
+        senhaInput.onkeypress = (e) => { if(e.key === 'Enter') validarLogin(); };
+        logoutBtn.onclick = () => { localStorage.removeItem('gabriel_logado'); location.reload(); };
 
-            if (!senha) {
-                mostrarErro('⚠️ Digite a senha!');
-                inputSenha.focus();
-                return;
-            }
-
-            btnLogin.innerHTML = 'Verificando... 🔍';
-            btnLogin.disabled = true;
-            mensagemErro.textContent = '';
-
-            setTimeout(() => {
-                // SENHAS VÁLIDAS
-                if (senha === 'gabriel' || senha === 'gabriel123' || senha === 'familiagabriel') {
-                    localStorage.setItem('usuarioLogado', 'sim');
-                    loginContainer.style.display = 'none';
-                    conteudoAlbum.style.display = 'block';
-                    inputSenha.value = '';
-                } else {
-                    mostrarErro('🔒 Senha incorreta! Tente "gabriel"');
-                    inputSenha.value = '';
-                    inputSenha.focus();
+        // Lógica de Zoom Corrigida
+        document.querySelectorAll('.card').forEach(card => {
+            card.onclick = () => {
+                const midiaOriginal = card.querySelector('img, video');
+                const clone = midiaOriginal.cloneNode(true);
+                
+                if(clone.tagName === 'VIDEO') {
+                    clone.controls = true;
+                    clone.autoplay = true;
+                    clone.muted = false;
                 }
-
-                btnLogin.innerHTML = 'Entrar 🔐';
-                btnLogin.disabled = false;
-            }, 500);
-        }
-
-        // LOGOUT
-        btnLogout.addEventListener('click', function () {
-            localStorage.removeItem('usuarioLogado');
-            conteudoAlbum.style.display = 'none';
-            loginContainer.style.display = 'block';
-            mensagemErro.textContent = '';
-        });
-
-        // MODAL - FOTOS
-        document.querySelectorAll('.card img').forEach(img => {
-            img.parentElement.addEventListener('click', function () {
-                modalContent.innerHTML = `<img src="${img.src}" class="modal-content">`;
+                
+                modalContent.innerHTML = '';
+                modalContent.appendChild(clone);
                 modal.style.display = 'flex';
-            });
+            };
         });
 
-        // MODAL - VÍDEO
-        document.querySelectorAll('.card video').forEach(video => {
-            video.parentElement.addEventListener('click', function () {
-                const videoSrc = video.querySelector('source').src;
-                modalContent.innerHTML = `
-                    <video controls class="modal-content" autoplay>
-                        <source src="${videoSrc}" type="video/mp4">
-                        Seu navegador não suporta vídeos.
-                    </video>
-                `;
-                modal.style.display = 'flex';
-            });
-        });
-
-        // Fechar modal ao clicar no X
-        fecharModal.addEventListener('click', function () {
+        // Fechar
+        const fecharModal = () => {
             modal.style.display = 'none';
-            modalContent.innerHTML = '';
-        });
+            modalContent.innerHTML = ''; // Limpa para parar vídeos
+        };
 
-        // Fechar modal ao clicar fora
-        modal.addEventListener('click', function (e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                modalContent.innerHTML = '';
-            }
-        });
-
-        // Fechar modal com ESC
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                modal.style.display = 'none';
-                modalContent.innerHTML = '';
-            }
-        });
-
-        function mostrarErro(mensagem) {
-            mensagemErro.textContent = mensagem;
-            mensagemErro.style.animation = 'shake 0.5s';
-            setTimeout(() => {
-                mensagemErro.style.animation = '';
-            }, 500);
-        }
-
-        console.log('✅ Álbum carregado! Senha: gabriel');
+        document.querySelector('.fechar').onclick = fecharModal;
+        window.onclick = (e) => { if(e.target === modal) fecharModal(); };
     </script>
 </body>
-
 </html>
