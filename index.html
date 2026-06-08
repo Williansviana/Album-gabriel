@@ -128,7 +128,7 @@
             border: 2px solid #ff6b6b;
         }
 
-        /* ===== MODAL (ZOOM CORRIGIDO) ===== */
+        /* ===== MODAL ===== */
         .modal {
             display: none;
             position: fixed;
@@ -149,23 +149,23 @@
             align-items: center;
         }
 
-        /* AJUSTE PARA A FOTO FICAR NORMAL NO ZOOM */
         .modal-content img, .modal-content video { 
             max-width: 95vw; 
-            max-height: 90vh; 
-            border-radius: 5px;
-            object-fit: contain; /* Garante que a foto não estique e apareça inteira */
+            max-height: 85vh; 
+            border-radius: 12px;
+            object-fit: contain;
             box-shadow: 0 0 30px rgba(0,0,0,0.5);
         }
 
         .fechar { 
             position: absolute; 
-            top: -40px; 
-            right: 0; 
+            top: -50px; 
+            right: 10px; 
             color: white; 
-            font-size: 40px; 
+            font-size: 45px; 
             cursor: pointer; 
             font-weight: bold;
+            user-select: none;
         }
 
         @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-10px); } }
@@ -176,12 +176,12 @@
 <body>
 
     <div id="login-container" class="auth-box">
-        <div class="logo-familia">🐾</div>
+        <div class="logo-familia">👶</div>
         <h1>Acesso à Família</h1>
         <p>Álbum do Pequeno Gabriel</p>
         <div class="input-group">
             <input type="password" id="senha" placeholder="Senha secreta...">
-            <button id="btn-login">Entrar 🔐</button>
+            <button id="btn-login">Entrar</button>
         </div>
         <p id="mensagem-erro" style="color: red; margin-top: 10px; font-weight: bold;"></p>
     </div>
@@ -218,7 +218,7 @@
                     <div class="card"><img src="./img/WhatsApp Image 2026-01-27 at 20.10.50.jpeg"><div class="legenda">Momentos mágicos ✨</div></div>
                     <div class="card"><img src="./img/bebe.jpeg"><div class="legenda">Perfeito ✨</div></div>
                     <div class="card"><img src="./img/sexo masc.jpeg"><div class="legenda">É Menino! 👦</div></div>
-                    <div class="card"><img src="./img/boca.jpeg"><div class="legenda">Bochechas 😊</div></div>
+                    <div class="card"><img src="./img/boca.jpeg"><div class="legenda">Bochechas </div></div>
                     <div class="card"><img src="./img/femur.jpeg"><div class="legenda">Crescendo 💪</div></div>
                     <div class="card">
                         <video autoplay muted loop playsinline><source src="./video/nascido 1.mp4" type="video/mp4"></video>
@@ -235,7 +235,7 @@
                     <div class="card"><img src="./img/3.jpeg"><div class="legenda">Cheguei! 💝</div></div>
                     <div class="card"><img src="./img/5.jpeg"><div class="legenda">Charme 😊</div></div>
                     <div class="card"><img src="./img/6.jpeg"><div class="legenda">Não me incomode 😴</div></div>
-                    <div class="card"><img src="./img/8.jpeg"><div class="legenda">Relaxando 🤔</div></div>
+                    <div class="card"><img src="./img/8.jpeg"><div class="legenda">Relaxando </div></div>
                     <div class="card"><img src="./img/9.jpeg"><div class="legenda">Olha o Leão ✨</div></div>
                     <div class="card"><img src="./img/10.jpeg"><div class="legenda">Olha a pose ✨</div></div>
                     <div class="card"><img src="./img/11.jpeg"><div class="legenda">Tomando Sol ✨</div></div>
@@ -286,6 +286,28 @@
                 </div>
             </section>
 
+            <section>
+                <h3 class="secao-titulo">🎈 3 Meses do Gabriel</h3>
+                <div class="galeria">
+                    <div class="card"><img src="./img/3 mes.jpeg" alt="3 meses"><div class="legenda">Sorriso 😊</div></div>
+                    <div class="card"><img src="./img/3 meses.jpeg" alt="3 meses"><div class="legenda">Sorriso 😊</div></div>
+                    <div class="card"><img src="./img/3 meses 1.jpeg" alt="3 meses"><div class="legenda">Sorriso 😊</div></div>
+                    <div class="card"><img src="./img/3 meses 2.jpeg" alt="3 meses"><div class="legenda">Brincando </div></div>
+                    <div class="card"><img src="./img/3 meses 3.jpeg" alt="3 meses"><div class="legenda">Fofura 💝</div></div>
+                    <div class="card"><img src="./img/3 meses 4.jpeg" alt="3 meses"><div class="legenda">Descansando 😴</div></div>
+                    <div class="card"><img src="./img/3 meses 5.jpeg" alt="3 meses"><div class="legenda">Explorando 🔍</div></div>
+
+                    <div class="card">
+                        <video autoplay muted loop playsinline><source src="./video/3 meses video.mp4" type="video/mp4"></video>
+                        <div class="legenda">Primeiros Sons 🎵</div>
+                    </div>
+                    <div class="card">
+                        <video autoplay muted loop playsinline><source src="./video/3 mes video.mp4" type="video/mp4"></video>
+                        <div class="legenda">Hora do Banho 🛁</div>
+                    </div>
+                </div>
+            </section>
+
             <div style="text-align: center; margin-top: 50px; color: #667eea; font-weight: bold;">
                 <p>💝 Em breve, mais memórias... 📸</p>
             </div>
@@ -309,7 +331,6 @@
         const modal = document.getElementById('modal');
         const modalContent = document.getElementById('conteudo-modal');
 
-        // Checar Login
         if (localStorage.getItem('gabriel_logado') === 'sim') {
             loginDiv.style.display = 'none';
             albumDiv.style.display = 'block';
@@ -330,10 +351,11 @@
         senhaInput.onkeypress = (e) => { if(e.key === 'Enter') validarLogin(); };
         logoutBtn.onclick = () => { localStorage.removeItem('gabriel_logado'); location.reload(); };
 
-        // Lógica de Zoom Corrigida
         document.querySelectorAll('.card').forEach(card => {
             card.onclick = () => {
                 const midiaOriginal = card.querySelector('img, video');
+                if (!midiaOriginal) return; 
+                
                 const clone = midiaOriginal.cloneNode(true);
                 
                 if(clone.tagName === 'VIDEO') {
@@ -348,10 +370,9 @@
             };
         });
 
-        // Fechar
         const fecharModal = () => {
             modal.style.display = 'none';
-            modalContent.innerHTML = ''; // Limpa para parar vídeos
+            modalContent.innerHTML = ''; 
         };
 
         document.querySelector('.fechar').onclick = fecharModal;
